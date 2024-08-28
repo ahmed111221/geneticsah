@@ -145,7 +145,7 @@ function checkLogin(e){
         if(verified){
             //TODO : store a token
             document.cookie = `auth=${token}; expires=${new Date(Date.now() + 1000 * 3600 * 24 *  2).toUTCString()}`
-            window.location.href = "/clinicProject"
+            window.location.href = "./index.php"
         }else {
             showError("invalid credentials")
         }
