@@ -80,7 +80,7 @@ function submitSignUp(){
         
         if(elementExiste($table,"GmailCli",$email)){
             $_SESSION['statOfEmail'] = "Email alredy existe";
-            header("location: http://localhost/clinicProject/index.php?LoginLink=Login");
+            header("location: /?LoginLink=Login");
         }else{
             if(sendEmail ($ferstName,$email,$verifyToken)){
                 InsererTable($table,$element);
@@ -108,7 +108,7 @@ function submitSignUp(){
         $_SESSION['signUp'] = "validate";
         ?>
         <script>if (confirm("Sign Up Successful")) {
-                window.location.href = "http://localhost/clinicProject/index.php"; // Remplacez par l'URL de votre choix
+                window.location.href = "/"; // Remplacez par l'URL de votre choix
             }
         </script>   
     <?php

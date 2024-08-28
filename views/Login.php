@@ -13,7 +13,7 @@ require'views/icons.php';
             </div>
         </div>
         <div class="signupboxContent">
-            <a href="http://localhost/clinicProject/index.php"><div class="croiOfretourn"><?= $croiduretour?></div></a>
+            <a href="/"><div class="croiOfretourn"><?= $croiduretour?></div></a>
                 <div class="signupboxContentElement">
                     <h3>Login</h3>
                     <p>Login now and gain access to exclusive content!</p>

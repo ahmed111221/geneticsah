@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="signupboxContent">
-            <a href="http://localhost/clinicProject/index.php"><div class="croiOfretourn"><?= $croiduretour?></div></a>
+            <a href="/"><div class="croiOfretourn"><?= $croiduretour?></div></a>
             <?php ob_start(); ?>
                 <div class="signupboxContentElement">
                     <h3>Sign up</h3>
@@ -34,7 +34,7 @@
                         </div>
                         <input name="Next" type="submit" value="Next" id="Next">
                     </form>
-                    <p>If you're already signed up, click on <a style="color: rgb(10, 30, 219); text-decoration: none; font-weight: 600;" href="http://localhost/clinicProject/index.php?LoginLink=Login">Login</a> .</p>
+                    <p>If you're already signed up, click on <a style="color: rgb(10, 30, 219); text-decoration: none; font-weight: 600;" href="/?LoginLink=Login">Login</a> .</p>
                 </div>
             <?php 
                 $SignUpPart1 = ob_get_clean();
