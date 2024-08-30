@@ -53,6 +53,13 @@ function element2Existe($table,$element){
     }
 }
 
+function extractElement($table,$element,$keyName,$keyValue){
+    $conexion = getConexion();
+    $commande = "SELECT $element FROM $table WHERE $keyName='$keyValue'";  
+    $dbelement= $conexion->query($commande);
+    return $dbelement->fetch();
+}
+
 function ajouterValeur($table, $element, $GmailCli){
     $conexion = getConexion();
     $keys = array_keys($element);

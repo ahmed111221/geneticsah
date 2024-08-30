@@ -102,10 +102,10 @@ function checkPassword(){
     }
 }
 const showError = (err) =>{
-    password.style.border=" 1px solid #2f2f2fbd";
-    email.style.border="2px solid red";
     messageLoginErreur.textContent = err;
     boxsignup.classList.add('animate-slide');
+    password.style.border="2px solid red";
+    email.style.border="2px solid red";
     setTimeout(function() {
         boxsignup.classList.remove('animate-slide');
     }, 1000);
@@ -113,20 +113,22 @@ const showError = (err) =>{
 
 function checkLogin(e){
     e.preventDefault();
-    let password = e.target.password;
-    let email = e.target.email;
+    // let password = e.target.password;
+    // let email = e.target.email;
     if(email.value==""){
         email.style.border="2px solid red";
     }
     else{
         email.style.border=" 1px solid #2f2f2fbd";
-        i=i+1;
     }
     if(password.value==""){
         password.style.border="2px solid red";
     }
-    else if(password.value=="" && email.value==""){
-        showError("please fill all the fields")
+    else{
+        email.style.border=" 1px solid #2f2f2fbd";
+    }
+    if(password.value=="" && email.value==""){
+        showError("")
         return;
     }
 
@@ -144,7 +146,7 @@ function checkLogin(e){
     .then(({verified , token}) => {
         if(verified){
             //TODO : store a token
-            document.cookie = `auth=${token}; expires=${new Date(Date.now() + 1000 * 3600 * 24 *  2).toUTCString()}`
+            document.cookie = `token=${token}; expires=${new Date(Date.now() + 1000 * 3600 * 24 *  2).toUTCString()}`
             window.location.href = "./index.php"
         }else {
             showError("invalid credentials")
@@ -152,13 +154,7 @@ function checkLogin(e){
     })
 
 }
-function errurLogin(){
-    messageLoginErreur.style.display ="flex";
-    boxsignup.classList.add('animate-slide');
-    setTimeout(function() {
-        boxsignup.classList.remove('animate-slide');
-    }, 1000);
-}
+
 
 signupicon.style.fill = "rgb(70, 186, 219)";
 

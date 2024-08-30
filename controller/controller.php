@@ -6,7 +6,11 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
-function render($link){
+function render($link,$data = []){
+    if (!is_array($data)) {
+        $data = [];
+    }
+    extract($data);
     if(isset($link)){
         ob_start();
         require $link;
@@ -103,7 +107,9 @@ function submitSignUp(){
     }
     elseif(isset($_POST["Submit"])){
         $Password = $_POST["NewPassword"];
-        $element = ["passwordCli" => "$Password"];
+        $token = crierToken($table);
+        $element = ["passwordCli" => "$Password","token" => "$token"];
+        setcookie("token", "$token", time() + (86400 * 7), "/");
         ajouterValeur($table,$element,$_SESSION['email']);
         $_SESSION['signUp'] = "validate";
         ?>
@@ -115,26 +121,43 @@ function submitSignUp(){
     }
 }
 
+
+function crierToken($table){
+        $token = password_hash(rand(1000,999999), PASSWORD_DEFAULT);
+        $element = ["token" => "$token"];
+        if(element2Existe($table,$element)){
+            crierToken($table);
+        }
+        else{
+            return $token;
+        }
+}
+
 function getLogin() {
-    submitLogin();
     render("views/Login.php");
 }
 
-function submitLogin(){
-    $table = "client";
-    if (isset($_POST["Login"])){
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-
-        $element = ["GmailCli" => "$email","passwordCli" => "$password"];
-
-        
+function getSignUpIcon() {
+    if(isset($_COOKIE['token'])){
+        $token = $_COOKIE['token'];
+        $table = "client";
+        $element = ["token" => "$token"];
         if(element2Existe($table,$element)){
-            $response["verified"] = true;
-            echo json_encode($response);
-        }else{
-            $response["verified"] = false;
-            echo json_encode($response);
+            getProfil($token);
         }
     }
+    else{
+        getSignUp();
+    }
 }
+
+function getProfil($token) {
+    $_SESSION['signup'] = 'turn of';
+    $table ="client";
+    $firstName = extractElement($table,"NomCli","token",$token); 
+    $lastName = extractElement($table,"prenomCli","token",$token);
+    $description = extractElement($table,"description","token",$token);
+    $tab = ['firstName'=>$firstName['NomCli'], 'lastName'=>$lastName['prenomCli'], 'description'=>$description['description']];
+    render("views/profile.php",$tab);
+}
+

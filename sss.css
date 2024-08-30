@@ -9,12 +9,12 @@
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
 }
 
 /* Style de la piste de la scrollbar */
 ::-webkit-scrollbar-track {
-    background: #dedede;  /* Couleur de fond de la piste */
+    background: #e7e7e7;  /* Couleur de fond de la piste */
 }
 
 /* Style du pouce de la scrollbar */
@@ -24,7 +24,7 @@
 
 /* Changer la couleur du pouce au survol */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #ffffff;  /* Couleur du pouce au survol */
+    background-color: rgb(173, 228, 243) ;  /* Couleur du pouce au survol */
 }
 
 /* ---------------------------------------- nav bar ----------------------------------------------------------------------------------*/
@@ -1111,3 +1111,152 @@
     animation: erreur 0.5s ease forwards;
 }
 
+
+/*------------------------------------------------------- sidebar -----------------------------------------------------------------------*/
+
+.profilPage{
+    display: flex;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 199px;
+    height: 629px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 25px;
+    background-color: #F9F9F9;
+}
+
+.navigationsSidebar{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.navigationsSidebar a{
+    color: #CECECE;
+    width: 16px;
+    font-weight: 600;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.navigationsSidebar a:hover{
+    color: #aaaaaa;
+}
+
+.actifNavSidebar{
+    margin-bottom: 5px;
+}
+
+.actifNavSidebar a{
+    font-size: 20px;
+    font-weight: 600;
+    color: #373737;
+}
+
+.navigationsSidebar div{
+    display: flex;
+    margin-left: 30px;
+    width: 109px;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.actifIcon{
+    fill: #1C1C1C;
+}
+
+.logOut{
+    margin-top: 320px;
+}
+
+.logOut div a{
+    width: 103px;
+    font-weight: 400;
+}
+
+/*-------------------------------------------------------------profil part --------------------------------*/
+
+.profilePart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 1308px;
+    height: 629px;
+}
+
+.PhotoProfil {
+    width: 144px;
+    height: 144px;
+    background: #cfcfcf;
+    border-radius: 72px;
+}
+
+.profilePartcontont {
+    width: 550px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePartcontont h5{
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    color: #353535;
+}
+
+.profilePartcontont h3{
+    font-weight: 600;
+    font-size: 24px;
+    color: #353535;
+}
+
+.profilePartcontont p{
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #B7B7B7;
+}
+
+.profilePartcontontInfo{
+    margin-top: 10px;
+    display: flex;
+}
+
+.appointment {
+    border-right: 1px solid black;
+    padding-right: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #353535;
+}
+
+.NewMessage{
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #353535;
+}
+
+.appointment p{
+    font-size: 20px;
+    font-weight: 400;
+    color: #353535;
+}
+
+.NewMessage p{
+    font-size: 20px;
+    font-weight: 400;
+    color: #353535;
+}

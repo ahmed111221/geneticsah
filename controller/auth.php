@@ -10,8 +10,9 @@
 
     
     if(element2Existe($table,$element)){
+        $token = extractElement($table,"token","GmailCli",$email);
         $response["verified"] = true;
-        $response["token"] = $email;
+        $response["token"] = $token["token"];
         echo json_encode($response);
     }else{
         $response["verified"] = false;

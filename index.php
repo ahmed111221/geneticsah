@@ -2,7 +2,7 @@
 require_once'controller/controller.php';
 
 if(isset($_GET["SignUpIcon"])){
-    getSignUp();
+    getSignUpIcon();
 }
 elseif(isset($_GET["LoginLink"])){
     getLogin();
