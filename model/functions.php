@@ -60,19 +60,15 @@ function extractElement($table,$element,$keyName,$keyValue){
     return $dbelement->fetch();
 }
 
-function ajouterValeur($table, $element, $GmailCli){
+function ajouterValeur($table, $arayValueAdd, $arayValueR){
     $conexion = getConexion();
-    $keys = array_keys($element);
-    $values = array_values($element);
-    // Construire la commande SQL pour l'instruction UPDATE
-    $setClause = [];
-    foreach ($keys as $key) {
-        $setClause[] = "$key = ?";
-    }
-    $commande = "UPDATE $table SET ".join(", ", $setClause)." WHERE GmailCli = ?";
-    // Préparer et exécuter la commande SQL
-    $prepare = $conexion->prepare($commande);
-    $prepare->execute(array_merge($values, [$GmailCli]));
+    $key = array_keys($arayValueAdd)[0];
+    $value = array_values($arayValueAdd)[0];
+    $keyR = array_keys($arayValueR)[0];
+    $valueR = array_values($arayValueR)[0];
+
+    $commande = "UPDATE $table SET $key = '$value'  WHERE $keyR = '$valueR' ";
+    $conexion->query($commande);
 }
 
 function deleteColumn($table,$id,$element){

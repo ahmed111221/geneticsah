@@ -108,13 +108,17 @@ function submitSignUp(){
     elseif(isset($_POST["Submit"])){
         $Password = $_POST["NewPassword"];
         $token = crierToken($table);
-        $element = ["passwordCli" => "$Password","token" => "$token"];
+        $email =$_SESSION['email'];
+        $element = ["passwordCli" => "$Password"];
+        $arayValueR = ["GmailCli" => "$email"];
+        ajouterValeur($table,$element, $arayValueR);
         setcookie("token", "$token", time() + (86400 * 7), "/");
-        ajouterValeur($table,$element,$_SESSION['email']);
+        $element = ["token" => "$token"];
+        ajouterValeur($table,$element,$arayValueR);
         $_SESSION['signUp'] = "validate";
         ?>
         <script>if (confirm("Sign Up Successful")) {
-                window.location.href = "/"; // Remplacez par l'URL de votre choix
+                window.location.href = "/?SignUpIcon=SignUp"; // Remplacez par l'URL de votre choix
             }
         </script>   
     <?php
@@ -151,13 +155,22 @@ function getSignUpIcon() {
     }
 }
 
-function getProfil($token) {
+function getProfil() {
     $_SESSION['signup'] = 'turn of';
-    $table ="client";
-    $firstName = extractElement($table,"NomCli","token",$token); 
-    $lastName = extractElement($table,"prenomCli","token",$token);
-    $description = extractElement($table,"description","token",$token);
-    $tab = ['firstName'=>$firstName['NomCli'], 'lastName'=>$lastName['prenomCli'], 'description'=>$description['description']];
-    render("views/profile.php",$tab);
+    render("views/profile.php");
 }
 
+if (isset($_GET["LogOut"])) {
+    ?>
+    <script>
+        if (confirm("Are you sure you want log out")) {
+            deleteCookie('token');
+            window.location.href = "/";
+        }
+
+        function deleteCookie(name) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        }
+    </script>   
+    <?php
+}

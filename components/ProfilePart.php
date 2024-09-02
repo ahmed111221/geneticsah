@@ -1,9 +1,11 @@
 <div class="profilePart">
     <div class="profilePartcontont">
-        <div class="PhotoProfil"></div>
+        <div class="profile-container">
+            <img src="img/<?= $_SESSION["file_path"];?>" alt="Photo de profil" class="profile-pic" id="profileImage">
+        </div>
         <h5>Bienvenue!</h5>
-        <h3><?= $firstName;?> <?=  $lastName  ?></h3>
-        <p><?= $description;?></p>
+        <h3><?= $_SESSION["firstName"];?> <?=  $_SESSION["lastName"] ?></h3>
+        <p><?= $_SESSION["description"];?></p>
         <div class="profilePartcontontInfo">
             <div class="appointment">
                 <p>0</p>

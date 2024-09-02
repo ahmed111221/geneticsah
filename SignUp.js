@@ -147,7 +147,7 @@ function checkLogin(e){
         if(verified){
             //TODO : store a token
             document.cookie = `token=${token}; expires=${new Date(Date.now() + 1000 * 3600 * 24 *  2).toUTCString()}`
-            window.location.href = "./index.php"
+            window.location.href = "/?SignUpIcon=SignUp"
         }else {
             showError("invalid credentials")
         }
