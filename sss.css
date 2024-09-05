@@ -1545,7 +1545,7 @@ input[type="submit"][name="CANCEL"]:hover{
     flex-direction: column;
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 0 10px;
     box-sizing: border-box; /* Assure que le padding est inclus dans la hauteur totale */
 }

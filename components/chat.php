@@ -20,7 +20,7 @@
             <div class="phon-frend-profile"></div>
             <img src="emages/Rectangle 5891.png">
             <div class="chat-phon-missages">
-                <div class="phon-missages"></div>
+                <div class="phon-missages" id="phonmissages"></div>
             </div>
             <button class="send-button"><?= $sendIcon ?></button>
             <input class="message" type="text" name="message" placeholder="Send message...">
@@ -30,11 +30,21 @@
 
 
 
-
 <script>
+        function scrollToBottom() {
+            var container = document.getElementById('phonmissages');
+            container.scrollTop = container.scrollHeight;
+        }
+
+        window.onload = function() {
+            scrollToBottom();
+        };
+
+
+
+
 
 $(document).ready(function() {
-    
     $.ajax({
         url: 'controller/authMessages.php',
         type: 'post',
@@ -85,6 +95,7 @@ $(document).ready(function() {
 
 
 function ectractMessages(id){
+    scrollToBottom();
     $(document).ready(function() {
     setInterval(function(){
         $.ajax({
@@ -96,6 +107,7 @@ function ectractMessages(id){
             dataType: "html",
             success: function(response) {
                 $(".phon-missages").html(response);
+                scrollToBottom();
             },
             error: function() {
                 alert('Une erreur est survenue.');
