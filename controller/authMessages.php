@@ -68,13 +68,15 @@ if(isset($_POST['contacts'])){
     $idR = $_POST['idF'];
     $idS = extractElement('client','IdCli','token',$token);
     $missage = $_POST['message'];
-    $element = [
-        "idCls" => $idS[0]['IdCli'],
-        "idClr" => $idR,
-        "message" => $missage,
-        "Time" => date('Y-m-d H:i:s') // Convertir l'horodatage Unix en format de date/heure
-    ];  
-    InsererTable("MissageClient",$element);
+    if($missage!=""){
+        $element = [
+            "idCls" => $idS[0]['IdCli'],
+            "idClr" => $idR,
+            "message" => $missage,
+            "Time" => date('Y-m-d H:i:s') // Convertir l'horodatage Unix en format de date/heure
+        ];  
+        InsererTable("MissageClient",$element);
+    }
  }
 
 ?>
