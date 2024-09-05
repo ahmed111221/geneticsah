@@ -9,6 +9,8 @@ elseif(isset($_GET["LoginLink"])){
 }
 elseif(isset($_GET["auth"])){
     
+}elseif(isset($_GET["admin"])){
+    getAdmine();
 }
 else{
     $_SESSION['statOfEmail'] = 'turn of';

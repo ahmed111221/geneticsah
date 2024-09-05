@@ -57,7 +57,7 @@ function extractElement($table,$element,$keyName,$keyValue){
     $conexion = getConexion();
     $commande = "SELECT $element FROM $table WHERE $keyName='$keyValue'";  
     $dbelement= $conexion->query($commande);
-    return $dbelement->fetch();
+    return $dbelement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function ajouterValeur($table, $arayValueAdd, $arayValueR){
@@ -76,4 +76,27 @@ function deleteColumn($table,$id,$element){
     $commande = "DELETE FROM $table WHERE $id = ?";
     $prepare = $conexion->prepare($commande);
     $prepare->execute([$element]);
+}
+
+/* il faux generaliser c est deux fonctions */
+function extractAll($table,$ids,$idr){
+    $conexion = getConexion();
+    $commande = "SELECT * FROM $table where idCls = $ids AND idClr = $idr or idCls = $idr AND idClr = $ids";
+    $dbelement= $conexion->query($commande);
+    return $dbelement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function extractAllWhere($table,$id){
+    $conexion = getConexion();
+    $commande = "SELECT * FROM $table where myid = $id or frindid = $id";
+    $dbelement= $conexion->query($commande);
+    return $dbelement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function elementAjouter(){
+    $conexion = getConexion();
+    $sql = "SELECT COUNT(*) AS count FROM MissageClient WHERE Time = NOW()";
+    $result = $conexion->query($sql);
+    return $result->fetch();
 }

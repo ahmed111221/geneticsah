@@ -174,3 +174,8 @@ if (isset($_GET["LogOut"])) {
     </script>   
     <?php
 }
+
+function getAdmine(){
+    $_SESSION['signup'] = 'turn of';
+    render("views/admine.php");
+}

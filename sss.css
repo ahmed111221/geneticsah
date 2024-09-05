@@ -1465,20 +1465,23 @@ input[type="submit"][name="CANCEL"]:hover{
 /*------------------------------------------------------------- chat-part ---------------------------------------------*/
 
 .chat-contacts-page{
+    margin-top: 20px;
     display: flex;
     width: auto;
-    height: auto;
+    height: 629px;
+    z-index: -5;
 }
 
 .chat-contacts{
     width: 831px;
-    height: 558px;
+    height: 520px;
     margin-top: 88px;
     margin-left: 57px;
 }
 
 .chat-contacts-MYcontact{
     display: flex;
+    flex-direction: column;
     align-items: center;
     height: auto;
 }
@@ -1500,9 +1503,164 @@ input[type="submit"][name="CANCEL"]:hover{
     color: #353535;
 }
 
+.chat-contacts-frinds{
+    overflow: hidden;
+    width: 594px;
+    height: 200px;
+    background-color: #fff;
+    margin-top: 65px;
+    margin-left: 65px;
+}
+
+.chat-contacts-frindcontact{
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+}
+
 .chat-phon{
+    display: none;
+    position: relative;
+    overflow: hidden;
     border-radius: 15px;
-    background-color: #acf3ff;
-    width: 427px;
-    height: 698px;
+    background-color: #ffffff;
+    width: 394px;
+    height: 629px;
+}
+
+.chat-phon-missages {
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: absolute;
+    top: 120px;
+    height: 410px;
+    z-index: 80;
+    width: 384px;
+}
+
+.phon-missages {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 0 10px;
+    box-sizing: border-box; /* Assure que le padding est inclus dans la hauteur totale */
+}
+
+.frind-image-contact{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+.mymissage{
+    position: relative;
+    padding: 13px 17px 20px 17px;
+    border-radius: 15px 0 15px 15px;
+    color: #727272;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    width: 300px;
+    height:auto;
+    background-color: rgba(255, 255, 255, 0.72);
+    align-self: flex-end; /* Aligner à droite */
+}
+
+.MyFrMissage{
+    border-radius: 0 15px 15px 15px;
+    background-color: rgba(255, 255, 255, 0.67);
+    align-self: flex-start; /* Aligner à gauche */
+}
+
+.contact-item-phon{
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    max-width: 600px;
+    height: auto;
+}
+
+.contact-item-phon:hover{
+    display: flex;
+    max-width: 600px;
+    background: linear-gradient(to right, #F8F8F8, #ffffff00);
+    height: auto;
+}
+
+.contact-frind-info{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hours {
+    position: absolute;
+    font-size: 11px;
+    font-weight: 500;
+    color: #C5C5C5;
+    bottom: 4px;
+    right: 17px;
+}
+
+.chat-phon img{
+    opacity: 0.5;
+    position: absolute;
+    width: 394px;
+    height: 649px;
+    bottom: 0px;
+}
+
+.chat-phon input{
+    position: absolute;
+    outline: none;
+    bottom: 40px;
+    left: 25px;
+    width: 344px;
+    height: 45px;
+    border: 1px solid #ABABAB;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.72);
+    padding-left: 18px;
+    color: #8B8B8B;
+    font-size: 14px;
+    font-weight: 300;
+    padding-right: 56px;
+    z-index: 5;
+}
+
+.send-button {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    background-color: #AE68F2;
+    padding-left: 5px;
+    bottom: 45px;
+    right: 35px;
+    z-index: 6;
+}
+
+.phon-frend-profile{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 25px;
+    width: 344px;
+    height: 80px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.72);
+    top: 20px;
+    z-index: 6;
 }

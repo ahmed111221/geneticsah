@@ -241,3 +241,8 @@ $signOut = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="h
 <path d="M9.75 12H20.2472" stroke="#CECECE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M9.75 20.25H4.5C4.30109 20.25 4.11032 20.171 3.96967 20.0303C3.82902 19.8897 3.75 19.6989 3.75 19.5V4.5C3.75 4.30109 3.82902 4.11032 3.96967 3.96967C4.11032 3.82902 4.30109 3.75 4.5 3.75H9.75" stroke="#CECECE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>';
+
+$sendIcon = '<svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.423 9.58026L1.74838 0.111297C0.759156 -0.309546 -0.339982 0.53214 0.0996737 1.47904L2.84752 8.52816L15.3777 10.5272L2.84752 12.5262L0.0996737 19.5753C-0.230068 20.5222 0.759156 21.3639 1.74838 20.8378L21.423 11.3688C22.1923 11.0532 22.1923 10.0011 21.423 9.58026Z" fill="white"/>
+</svg>
+';
