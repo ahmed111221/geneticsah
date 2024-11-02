@@ -54,7 +54,7 @@ $(document).ready(function() {
                 $('#content').html(response);
             },
             error: function() {
-                alert('Une erreur est survenue.');
+                alert('Une erreur est survenue ici.');
             }
         });
     });
