@@ -127,7 +127,7 @@ function submitSignUp(){
 
 
 function crierToken($table){
-        $token = password_hash(rand(1000,999999), PASSWORD_DEFAULT);
+        $token = password_hash(rand(1001,999999), PASSWORD_DEFAULT);
         $element = ["token" => "$token"];
         if(element2Existe($table,$element)){
             crierToken($table);

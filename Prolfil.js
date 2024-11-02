@@ -42,14 +42,6 @@ function addActive(e,element,elementIcon,activeItem,actifIcon){
 }
 
 $(document).ready(function() {
-    // $(document).ajaxStart(function() {
-    //     $('#loader').show();
-    // });
-
-    // $(document).ajaxStop(function() {
-    //     $('#loader').hide();
-    // });
-
     $('.nav-link').on('click', function(e) {
         e.preventDefault();
         var page = $(this).data('page');
